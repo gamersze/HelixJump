@@ -6,9 +6,10 @@ public class CameraFollow : MonoBehaviour
 {
 
     public GameObject target;
+    public Transform targetX;
     public Vector3 offset;
     public Vector3 startPosition;
-   
+    
 
     public void Start()
     {
@@ -18,7 +19,11 @@ public class CameraFollow : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, target.transform.position + offset, Time.deltaTime);
+        Vector3 position = transform.position;
+        position.y = (targetX.position + offset).y;
+        transform.position = position;
+
+       
 
     }
 }

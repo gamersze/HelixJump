@@ -25,7 +25,7 @@ public class CylinderTurning : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            transform.Rotate(0, moveX * rotateSpeed * Time.deltaTime, 0f);
+            transform.Rotate(0, -moveX * rotateSpeed * Time.deltaTime, 0f);
             
         }
        
