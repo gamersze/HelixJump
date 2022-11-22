@@ -6,6 +6,7 @@ TagManager:
   tags:
   - destroyer
   - platform
+  - wrongarea
   layers:
   - Default
   - TransparentFX

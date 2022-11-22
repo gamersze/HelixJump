@@ -25,8 +25,17 @@ public class Ball : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        rb.AddForce(Vector3.up * jumpForce);
+        
+       if(collision.gameObject.tag == "platform")
+        {
+            rb.AddForce(Vector3.up * jumpForce);
+        }
+        
+        if(collision.gameObject.tag == "wrongarea")
+        {
+            Time.timeScale = 0f;
 
+        }
        
     }
 
