@@ -45,7 +45,7 @@ public class Levelpro : MonoBehaviour
         uiFillImage.fillAmount = value;
     }
 
-    public void Update()
+    public void FillBar()
     {
         if (playerTransform.position.z <= endLinePosition.z)
         {

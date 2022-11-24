@@ -6,11 +6,12 @@ public class Ball : MonoBehaviour
 {
     public Rigidbody rb;
     public float jumpForce;
-   public Vector3 startposition;
+    public Vector3 startposition;
+    public Levelpro levelpro;
 
     void Start()
     {
-       rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
 
         startposition = transform.position;
         
@@ -28,7 +29,8 @@ public class Ball : MonoBehaviour
         
        if(collision.gameObject.tag == "platform")
         {
-            rb.AddForce(Vector3.up * jumpForce);
+            ///rb.AddForce(Vector3.up * jumpForce);
+            rb.velocity = new Vector3(0, jumpForce, 0); 
         }
         
         if(collision.gameObject.tag == "wrongarea")
@@ -41,10 +43,12 @@ public class Ball : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "destroyer")
+        if (other.gameObject.tag == "destroyer" || other.gameObject.tag == "endline")
         {
             print("e");
             StartCoroutine(DestroyRing(other.transform.parent.gameObject));
+
+            levelpro.FillBar();
 
           //  other.transform.parent.gameObject.GetComponent<MeshRenderer>().enabled = false;
 
